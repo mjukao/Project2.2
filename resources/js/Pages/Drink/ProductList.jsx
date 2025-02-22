@@ -270,19 +270,7 @@ const ProductList = () => {
                         >
                             Prev
                         </button>
-                        <input
-                            type="number"
-                            value={currentPage}
-                            min="1"
-                            max={totalPages}
-                            onChange={(e) => {
-                                const page = Number(e.target.value);
-                                if (page >= 1 && page <= totalPages) {
-                                    setCurrentPage(page);
-                                }
-                            }}
-                            className="w-12 text-center border rounded"
-                        />
+                        <span className="w-12 text-center">{currentPage}</span>
                         <button
                             onClick={() =>
                                 setCurrentPage((prev) =>
@@ -334,18 +322,7 @@ const ProductList = () => {
                                         >
                                             -
                                         </button>
-                                        <input
-                                            type="number"
-                                            value={item.quantity}
-                                            onChange={(e) =>
-                                                updateQuantity(
-                                                    item.id,
-                                                    Number(e.target.value) || 1
-                                                )
-                                            }
-                                            className="w-12 text-center border rounded"
-                                            min="1"
-                                        />
+                                        <span className="w-12 text-center">{item.quantity}</span>
                                         <button
                                             className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
                                             onClick={() =>

@@ -14,6 +14,8 @@ class CreateBillItemsTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->integer('quantity');
             $table->decimal('price', 8, 2);
+            $table->string('note')->nullable();
+
             $table->timestamps();
 
             $table->foreign('bill_id')->references('id')->on('bills')->onDelete('cascade');

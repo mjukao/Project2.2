@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +14,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {  
+Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -22,16 +22,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+
     // Add the rooms.index and rooms.create routes
     Route::get('/rooms', function () {
         return Inertia::render('Rooms/Index');
     })->name('rooms.index');
-    
+
     Route::get('/rooms/create', function () {
         return Inertia::render('Rooms/Create');
     })->name('rooms.create');
 });
+Route::post('/create', [ProductController::class, 'store'])->name('create');
+
+Route::post('/products', [ProductController::class, 'store'])->name('products.create');
+
+Route::post('/api/products', [ProductController::class, 'store'])->name('products.store');
 
 // Add the new route to render the Drink page
 Route::get('/drink', function () {

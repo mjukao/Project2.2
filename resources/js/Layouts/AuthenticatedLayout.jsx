@@ -48,6 +48,12 @@ export default function AuthenticatedLayout({ header, children }) {
                                 >
                                     Bill Summary
                                 </NavLink>
+                                <NavLink
+                                    href={route('products.create')}
+                                    active={route().current('products.create')}
+                                >
+                                    Create Product
+                                </NavLink>
                             </div>
                         </div>
 
@@ -169,6 +175,12 @@ export default function AuthenticatedLayout({ header, children }) {
                             active={route().current('billsummary')}
                         >
                             Bill Summary
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                            href={route('create')}
+                            active={route().current('create')}
+                        >
+                            Create Product
                         </ResponsiveNavLink>
                     </div>
 

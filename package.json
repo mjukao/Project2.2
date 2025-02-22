@@ -23,6 +23,7 @@
     "dependencies": {
         "@inertiajs/inertia": "^0.11.1",
         "framer-motion": "^12.4.7",
+        "react-router-dom": "^7.2.0",
         "react-toastify": "^11.0.3",
         "react-tooltip": "^5.28.0",
         "sweetalert2": "^11.15.10"

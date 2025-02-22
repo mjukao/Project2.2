@@ -14,6 +14,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+
+
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::get('/products', [ProductController::class, 'index']);
+
 Route::apiResource('products', ProductController::class);
 Route::apiResource('categories', CategoryController::class);
 Route::apiResource('orders', OrderController::class);
@@ -25,5 +30,7 @@ Route::post('login', [AuthController::class, 'login']);
 Route::post('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 Route::get('/bills/summary', [BillSummaryController::class, 'summary']);
+Route::get('/bills', [BillController::class, 'index']);
+Route::post('/bills', [BillController::class, 'store']);
 
 Route::patch('/bills/{bill}/complete', [BillController::class, 'complete']);
